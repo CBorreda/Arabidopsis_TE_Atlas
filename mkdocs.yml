@@ -1,0 +1,29 @@
+site_url: ""
+site_name: MkLorum
+nav:
+  - Home: index.md
+  - Elements: 
+    - Elements: elements/index.md
+
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - navigation.expand
+    - navigation.sections
+    - navigation.top
+    - header.autohide
+  # This controls layout width:
+  # You can set the max width to none
+  # so the content uses full screen width
+  extra:
+    content-max-width: none
+
+extra_css:
+  - css/fullwidth.css
+  - css/extra.css
+
+plugins:
+  - include-markdown

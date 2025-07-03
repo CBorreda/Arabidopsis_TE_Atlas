@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Interactive Network</title>
+  <script src="https://unpkg.com/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <style>
+    #cy {
+      width: 100%;
+      height: 800px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Network Viewer</h2>
+<div id="cy"></div>
+
+<script>
+  // Load the JSON network data from file
+  fetch("network.json")
+    .then(res => res.json())
+    .then(networkData => {
+      const cy = cytoscape({
+        container: document.getElementById("cy"),
+        elements: networkData.elements,
+        style: networkData.style, // use style if exported, otherwise define manually
+        layout: {
+          name: 'preset', // uses node positions from Cytoscape
+          fit: true
+        }
+      });
+
+      // Optional: hover tooltip (basic)
+      cy.nodes().on('mouseover', function(evt){
+        const node = evt.target;
+        node.qtip({
+          content: node.data('name') || node.id(),
+          show: { ready: true },
+          hide: { event: 'mouseout unfocus' },
+          position: { my: 'top center', at: 'bottom center' },
+          style: { classes: 'qtip-bootstrap' }
+        });
+      });
+    });
+</script>
+
+</body>
+</html>
