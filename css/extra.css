@@ -9,3 +9,12 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.md-content p {
+  text-align: justify;
+    text-justify: inter-word
+}
+
+.md-sidebar--secondary {
+  display: none !important;
+}
