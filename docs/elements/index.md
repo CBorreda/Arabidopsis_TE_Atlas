@@ -1,7 +1,8 @@
 # Per element data
 
-Here I'll add a table per superfamily. Each table will contain the following.
+The following list includes all TEs found to be expressed through long-read sequencing in *ddm1*, *ddm1rdr2* and *ddm1rdr6* mutants, grown under control conditions or subjected  to a heat stress or biotic stress using flagellin.
 
+For each entry, the DNA sequence of each TE-gene and each annotated isoform is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse). 
 
 <div id="item-table">Loading...</div>
 <div id="item-details" style="margin-top: 2em;"></div>
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tableDiv.innerHTML = "";  // Clear "Loading..."
 
       const table = document.createElement("table");
-      table.style.width = "100%";
+      // table.style.width = "100%";
       table.border = "1";
 
       const header = table.insertRow();

@@ -1,25 +1,30 @@
 site_url: ""
-site_name: MkLorum
+site_name: The Arabidopsis TE Atlas
 nav:
   - Home: index.md
-  - Elements: 
+  - Results:
     - Elements: elements/index.md
+    - Structural similarities: struct_sim/index.md
+    - Interaction potential: interacts/index.md
 
 theme:
   name: material
   palette:
-    primary: indigo
+    primary: green
     accent: indigo
   features:
-    - navigation.expand
-    - navigation.sections
-    - navigation.top
-    - header.autohide
+      - navigation.expand
+      - navigation.sections
+      - navigation.top
   # This controls layout width:
   # You can set the max width to none
   # so the content uses full screen width
   extra:
     content-max-width: none
+  logo: resources/qlab_logo.crop.png
+  favicon: resources/qlab_logo.crop.png
+  hide:
+    - toc
 
 extra_css:
   - css/fullwidth.css

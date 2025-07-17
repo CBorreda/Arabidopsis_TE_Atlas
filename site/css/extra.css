@@ -1,0 +1,17 @@
+.md-typeset pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.md-content {
+  max-width: 100% !important;  /* or 100% for full width */
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.md-content p {
+  text-align: justify;
+    text-justify: inter-word
+}
+

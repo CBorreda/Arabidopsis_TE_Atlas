@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Item Details</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+  <h2>Item Details</h2>
+  <div id="item-details">Loading...</div>
+
+  <script>
+    function wrapSequence(seq, width = 120) {
+    return seq.match(new RegExp(`.{1,${width}}`, 'g')).join('\n');
+    }
+    // Get query parameter
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+    
+    if (!id) {
+      document.getElementById("item-details").innerText = "No ID provided.";
+    } else {
+      fetch("entries/items.json")
+      .then(res => res.json())
+      .then(data => {
+        const item = data.find(d => d.te_id === id);
+        const cDNA_wrapped = item.cdnas_txt ? wrapSequence(item.cdnas_txt) : "No sequence available.";
+        const pept_wrapped = item.pepts_txt ? wrapSequence(item.pepts_txt) : "No sequence available.";
+          if (!item) {
+            document.getElementById("item-details").innerText = "Item not found.";
+          } else {
+            document.getElementById("item-details").innerHTML = `
+              <h3>${item.te_id}</h3>
+              <h4>Superfamily: ${item.transposon_superfamily}</h4>
+              <h4>Family: ${item.transposon_family}</h4>
+              <h4>cDNAs</h4>
+              <pre class="sequence">${cDNA_wrapped}</pre>
+              <h4>Peptides</h4>
+              <pre class="sequence">${pept_wrapped}</pre>
+            `;
+          }
+        });
+    }
+  </script>
+</body>
+</html>
