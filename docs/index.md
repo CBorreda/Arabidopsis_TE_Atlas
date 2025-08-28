@@ -12,3 +12,10 @@ This wiki contains a summarized version from the datasets produced in by *Borred
 <iframe src="resources/html/umap_sds_n50_d1.simplified.t.html" width="1200%" height="800px" style="border:none;"></iframe>
 
 <iframe src="resources/html/network_plot.html" width="1200%" height="800px" style="border:none;"></iframe>
+
+# To do
+
+There is some data missing so far. We have to add:
+- A combination of expression / riboseq / proteomic data
+- Something about the multimers ?
+- PDB of homomultimers (?)

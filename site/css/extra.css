@@ -15,3 +15,6 @@
     text-justify: inter-word
 }
 
+.md-sidebar--secondary {
+  display: none !important;
+}
