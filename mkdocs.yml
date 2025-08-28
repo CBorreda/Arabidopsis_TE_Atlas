@@ -1,11 +1,10 @@
 site_url: ""
 site_name: The Arabidopsis TE Atlas
 nav:
-  - Home: index.md
-  - Results:
-    - Elements: elements/index.md
-    - Structural similarities: struct_sim/index.md
-    - Interaction potential: interacts/index.md
+  - Elements: elements/index.md
+  - Coexpression network: coexpression/index.md
+  - Structural similarities: struct_sim/index.md
+  - Interaction potential: interacts/index.md
 
 theme:
   name: material

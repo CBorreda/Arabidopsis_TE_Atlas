@@ -22,16 +22,30 @@ document.addEventListener("DOMContentLoaded", function () {
       const table = document.createElement("table");
       // table.style.width = "100%";
       table.border = "1";
-
+  
       const header = table.insertRow();
-      header.innerHTML = "<th>Superfamily</th><th>Family</th><th>Element</th>";
+      header.innerHTML = "<th>Superfamily</th><th>Family</th><th>Element</th><th>DAPseq peaks</th><th>Coding sequences and ORFs</th><th>Expression</th><th>Engaged in translation?</th><th>Detected by MS?</th>";
 
       data.forEach((item) => {
         const row = table.insertRow();
+        const geneLinks = item.tegene.map(geneId => {
+          return `<a href="expression_hm.html?id=${geneId}">${geneId}</a>`;
+        }).join("<br>")
+        const riboLinks = item.ribo.map(ribo => {
+          return `${ribo}`;
+        }).join("<br>")
+        const massLinks = item.mass.map(mass => {
+          return `${mass}`;
+        }).join("<br>");
         row.innerHTML = `
           <td>${item.transposon_superfamily}</td>
           <td>${item.transposon_family}</td>
-          <td><a href="details.html?id=${item.te_id}">${item.te_id}</button></td>
+          <td>${item.te_id}</td>
+          <td><a href="dapseq_hm.html?id=${item.te_id}">Peaks</button></td>
+          <td><a href="details.html?id=${item.te_id}">FASTA</button></td>
+          <td>${geneLinks}</td>
+          <td>${riboLinks}</td>
+          <td>${massLinks}</td>
         `;
       });
 
