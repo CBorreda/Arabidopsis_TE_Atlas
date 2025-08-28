@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+</head>
+<body>
+  <div id="scatter-container" style="width:90%;height:90vh;"></div>
+  <script>
+    // Get query parameter
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!id) {
+      document.getElementById("heatmap-container").innerText = "No ID provided.";
+    } else {
+
+      fetch("entries/dapseqdata.json")
+        .then(res => res.json())
+        .then(data => {
+          const entry = data[id];
+          if (!entry || !entry.traces) {
+            document.getElementById("scatter-container").innerText =
+              "No traces found for this ID.";
+            return;
+          }
+
+          const layout = {
+            title: `TFBS abundance - ${id}`,
+            xaxis: { title: "Relative position in TE", automargin: true , range: [0,1], mirror: true, linecolor: 'black'},
+            yaxis: { title: "TF family", automargin: true , mirror: true, linecolor: 'black'},
+            margin: { t: 50, r: 0, l: 0 },
+            legend: { title: { text: "Number of <br>TFBS in bin" } },
+          };
+
+          Plotly.newPlot("scatter-container", entry.traces, layout);
+        })
+        .catch(err => {
+          document.getElementById("scatter-container").innerText =
+            "Error loading data.";
+          console.error(err);
+        });
+    }
+    </script>
+</body>
+</html>
