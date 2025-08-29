@@ -10,8 +10,8 @@ jobs:
         personal_token: ${{ secrets.PERSONAL_TOKEN }}
         src_path: /.
         dst_path: /
-        dst_owner: carbofer
-        dst_repo_name: carbofer.roleandopifias.io
+        dst_owner: LeanQ
+        dst_repo_name: ArabidopsisTEatlas
         dst_branch: gh-pages
         src_branch: gh-pages
         username: cborreda
