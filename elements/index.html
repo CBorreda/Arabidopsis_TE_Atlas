@@ -18,7 +18,7 @@
     
     
       
-        <title>Elements - The Arabidopsis TE Atlas</title>
+        <title>TE annotations - The Arabidopsis TE Atlas</title>
       
     
     
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Elements
+              TE annotations
             
           </span>
         </div>
@@ -176,7 +176,7 @@
   
   
   <span class="md-ellipsis">
-    Elements
+    TE annotations
     
   </span>
   
@@ -243,7 +243,7 @@
   
   
   <span class="md-ellipsis">
-    Interaction potential
+    TE-host interactome
     
   </span>
   
@@ -288,8 +288,8 @@
 
 
 <h1 id="per-element-data">Per element data</h1>
-<p>The following list includes all TEs found to be expressed through long-read sequencing in <em>ddm1</em>, <em>ddm1rdr2</em> and <em>ddm1rdr6</em> mutants, grown under control conditions or subjected  to a heat stress or biotic stress using flagellin.</p>
-<p>For each entry, the DNA sequence of each TE-gene and each annotated isoform is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse). </p>
+<p>The following list includes all TEs found to be expressed through long-read sequencing in <em>ddm1</em>, <em>ddm1rdr2</em> and <em>ddm1rdr6</em> mutants, grown under control conditions or subjected to heat stress or biotic stress (flagellin).</p>
+<p>For each entry, the DNA sequence of each TE-gene and each annotated transcript is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse). </p>
 <div id="item-table">Loading...</div>
 <div id="item-details" style="margin-top: 2em;"></div>
 
@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", function () {
       table.border = "1";
 
       const header = table.insertRow();
-      header.innerHTML = "<th>Superfamily</th><th>Family</th><th>Element</th><th>DAPseq peaks</th><th>Coding sequences and ORFs</th><th>Expression</th><th>Engaged in translation?</th><th>Detected by MS?</th>";
+      header.innerHTML = "<th>Superfamily</th><th>Family</th><th>TE copy</th><th>DAPseq peaks</th><th>CDS and ORFs</th><th>Expression profiles</th><th>Engaged in translation?</th><th>Detected by LC-MS proteomics?</th>";
 
       data.forEach((item) => {
         const row = table.insertRow();
