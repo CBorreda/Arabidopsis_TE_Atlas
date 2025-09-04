@@ -1,8 +1,8 @@
 # Per element data
 
-The following list includes all TEs found to be expressed through long-read sequencing in *ddm1*, *ddm1rdr2* and *ddm1rdr6* mutants, grown under control conditions or subjected  to a heat stress or biotic stress using flagellin.
+The following list includes all TEs found to be expressed through long-read sequencing in *ddm1*, *ddm1rdr2* and *ddm1rdr6* mutants, grown under control conditions or subjected to heat stress or biotic stress (flagellin).
 
-For each entry, the DNA sequence of each TE-gene and each annotated isoform is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse). 
+For each entry, the DNA sequence of each TE-gene and each annotated transcript is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse). 
 
 <div id="item-table">Loading...</div>
 <div id="item-details" style="margin-top: 2em;"></div>
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       table.border = "1";
   
       const header = table.insertRow();
-      header.innerHTML = "<th>Superfamily</th><th>Family</th><th>Element</th><th>DAPseq peaks</th><th>Coding sequences and ORFs</th><th>Expression</th><th>Engaged in translation?</th><th>Detected by MS?</th>";
+      header.innerHTML = "<th>Superfamily</th><th>Family</th><th>TE copy</th><th>DAPseq peaks</th><th>CDS and ORFs</th><th>Expression profiles</th><th>Engaged in translation?</th><th>Detected by LC-MS proteomics?</th>";
 
       data.forEach((item) => {
         const row = table.insertRow();

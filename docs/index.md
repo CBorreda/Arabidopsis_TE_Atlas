@@ -1,10 +1,12 @@
-# The Arabidopsis TE wiki
+# The Arabidopsis TE atlas
 
-This wiki contains a summarized version from the datasets produced in by *Borreda et al.*, and it is intended to be a straightforward way for the Arabidopsis TE community to access the cDNA and protein sequences of Arabidopsis transposable elements. An early version of this work [can be found in bioRxiv](https://www.biorxiv.org/content/10.1101/2024.04.02.587720v1), while the complete and most updated article is in revision.
+This page provides straightforward access to annotated TE-encoded genes and proteins, their cistrome, transcriptional networks, and predicted interactome in Arabidopsis. 
+
+If you use this page, please cite [Borreda et al 2024](https://www.biorxiv.org/content/10.1101/2024.04.02.587720v1).
 
 ## Table of contents
 
-- [Elements](elements/index.md) - List of annotated TE elements, their isoforms, cDNAs and main encoded proteins. Information about the presence of TFBS within the TE, expression level at different tissues, and whether the TEs are translated is also included.
-- [Coexpression network](coexpression/index.md) - A coexpression network performed using over 400 transcriptomes.
-- [Structural similarities](struct_sim/index.md) - UMAP of structural similarities of TE proteins and cellular genes.
-- [Interaction potential](interacts/index.md) - Interaction network based on AlphaFold2 iPTM metric between TE proteins and cellular proteins.
+- [TE annotations](elements/index.md) - List of annotated TEs, including their transcirpt isoforms, CDS, and main encoded proteins. Information about the presence of TFBS within the TE, expression level at different tissues, and whether the TEs are engaged in translation and detected by LC-MS proteomics is also included
+- [Coexpression network](coexpression/index.md) - Coexpression network of TEs and genes based on over 400 arabidopsis wild-type transcriptomes
+- [Structural similarities](struct_sim/index.md) - UMAP of structural similarities of TE-encoded proteins and cellular proteins
+- [TE-host interactome](interacts/index.md) - Predicted TE-host protein-protein interactome network

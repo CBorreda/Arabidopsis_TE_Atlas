@@ -1,6 +1,6 @@
-# Interaction potential
+# TE-host interactome
 
-Using AlphaFold2, we calculated the structure of >60000 potential dimers between TE proteins and nuclear cellular proteins. Using a set of known interacting protein paris, we stablished a iPTM threshold of 0.42 as the one providing a 95% specificity. Here we show the interacting network between TE proteins and cellular proteins, selecting only those interactions above the threshold. Raw ipTM values can be found [here](table.txt).
+Using AlphaFold2 multimer, we modelled the structure of >60000 potential protein-protein interactions (PPI) between 16 proteins encoded by distinct types of Class I and Class II TEs and 4,164 host-encoded cytoplasmic and nuclear proteins involved in structural and regulatory cellular functions. Using a tailored treshold to differentiate high confidence interactors, we detected hundreds of TE-host PPI. Raw interaction potentials (ipTM) can be found [here](table.txt).
 
 <iframe src="../resources/html/network_plot.html" width="1200%" height="800px" style="border:none;"></iframe>
 

@@ -1,10 +1,10 @@
 site_url: ""
 site_name: The Arabidopsis TE Atlas
 nav:
-  - Elements: elements/index.md
+  - TE annotations: elements/index.md
   - Coexpression network: coexpression/index.md
   - Structural similarities: struct_sim/index.md
-  - Interaction potential: interacts/index.md
+  - TE-host interactome: interacts/index.md
 
 theme:
   name: material
