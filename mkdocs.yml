@@ -8,6 +8,9 @@ nav:
 
 theme:
   name: material
+  footer:
+    extra:
+      generator: false
   palette:
     primary: green
     accent: indigo
@@ -28,6 +31,7 @@ theme:
 extra_css:
   - css/fullwidth.css
   - css/extra.css
+  - css/custom.css
 
 plugins:
   - include-markdown
