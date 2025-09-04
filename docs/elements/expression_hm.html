@@ -3,51 +3,75 @@
 <head>
   <title>Heatmap View</title>
   <meta charset="UTF-8" />
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 </head>
-<body>
-  <h2>Per-treatment average expression</h2>
-  <div id="heatmap-container" style="width:1400px; height:500px;">Loading heatmap...</div>
-
-  <script>
+<script>
     // Get query parameter
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
+</script>
+<body>
+  <h2 id="page-heading">Loading...</h2>
+  <div id="heatmap-container1" style="width:1400px; height:350px;"></div>
+  <div id="heatmap-container2" style="width:1400px; height:350px;"></div>
 
+  <script>
+    // Get query parameter
+
+    
     if (!id) {
-      document.getElementById("heatmap-container").innerText = "No ID provided.";
+        document.getElementById("heatmap-container1").innerText = "";
+        document.getElementById("heatmap-container2").innerText = "";
+        document.getElementById("page-heading").innerText = "No ID provided.";
     } else {
-      document.getElementById("heatmap-container").innerText = "";
-      fetch("entries/exprdata.json") // Your JSON with heatmap data
-        .then(res => res.json())
-        .then(data => {
-          const heatmapData = data[id]; // Use the id to select correct heatmap
+      // Lista de JSONs a cargar
+      const jsonFiles = [
+        { url: "entries/exprdata.json", container: "heatmap-container1", colorscale: "Viridis" , plotname: 'Wild type'},
+        { url: "entries/exprdata_ddm1.json", container: "heatmap-container2", colorscale: "Viridis" , plotname:'Methylation compromised' }
+      ];
+     document.getElementById("page-heading").innerText = `Gene expression for ${id} under different conditions`;  
+      jsonFiles.forEach(file => {
+        fetch(file.url)
+          .then(res => res.json())
+          .then(data => {
+            const heatmapData = data[id];
+            if (!heatmapData) {
+              document.getElementById(file.container).innerText =
+                `Heatmap not found for ${id} in ${file.plotname} - Likely all samples have low expression`;
+              return;
+            }
 
-          if (!heatmapData) {
-            document.getElementById("heatmap-container").innerText = "Heatmap not found for this ID. Expression too low in all samples.";
-            return;
-          }
+            const trace = {
+              z: heatmapData.z,
+              x: heatmapData.x || null,
+              y: heatmapData.y || null,
+              type: "heatmap",
+              colorscale: file.colorscale,
+              colorbar: {
+                title: "TPM",       // título de la barra
+                thickness: 20,      // grosor en píxeles
+                len: 1.8,           // longitud relativa (0-1)
+                y: 0.5,             // posición vertical
+                yanchor: "middle",
+                x: 1.05
+              }
+            };
 
-          // Build Plotly heatmap
-          const trace = {
-            z: heatmapData.z,
-            x: heatmapData.x || null,
-            y: heatmapData.y || null,
-            type: 'heatmap',
-            colorscale: 'Viridis'
-          };
+            const layout = {
+              title: `Averaged expression (in TPMs) per tissue - ${file.plotname}`,
+              margin: { t: 50, r: 100, l: 100, b: 200 },
+              scale: 10,
+              xaxis: { dtick : 1},
+            };
 
-          const layout = {
-            title: `Averaged expression (in TPMs) per tissue - ${id}`,
-            margin: { t: 50 , r: 100, l: 100}
-          };
-
-          Plotly.newPlot('heatmap-container', [trace], layout);
-        })
-        .catch(err => {
-          document.getElementById("heatmap-container").innerText = "Error loading heatmap data.";
-          console.error(err);
-        });
+            Plotly.newPlot(file.container, [trace], layout);
+          })
+          .catch(err => {
+            document.getElementById(file.container).innerText =
+              `Error loading ${file.plotname}`;
+            console.error(err);
+          });
+      });
     }
   </script>
 </body>
