@@ -2,7 +2,7 @@
 
 The following list includes all TEs found to be expressed through long-read sequencing in *ddm1*, *ddm1rdr2* and *ddm1rdr6* mutants, grown under control conditions or subjected to heat stress or biotic stress (flagellin).
 
-For each entry, the DNA sequence of each TE-gene and each annotated transcript is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse). 
+For each entry, the DNA sequence of each TE-gene and each annotated transcript is reported, together with the protein sequence of the first and the longest ORF on each sense (forward and reverse), the presence of DAPseq peaks (raw data can be found [here](../resources/DAPseq_peaks.tab.gz)) and the expression of each TE-gene under different conditions.
 
 <div id="item-table">Loading...</div>
 <div id="item-details" style="margin-top: 2em;"></div>
