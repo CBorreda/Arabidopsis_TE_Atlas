@@ -15,7 +15,7 @@ jobs:
 
       - name: Push branch to other repo
         run: |
-          git remote add target https://x-access-token:${TOKEN}@github.com/XXX/AA.git
+          git remote add target https://x-access-token:${TOKEN}@github.com/LeanQ/ArabidopsisTEatlas.git
           git push target gh-pages --force
         env:
           TOKEN: ${{ secrets.PERSONAL_TOKEN }}
