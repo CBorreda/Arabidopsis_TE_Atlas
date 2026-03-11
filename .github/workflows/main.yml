@@ -7,7 +7,7 @@ jobs:
     - name: Copycat
       uses: andstor/copycat-action@v3
       with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}
+        personal_token: ${{ secrets.PERSONAL_TOKEN_032026 }}
         src_path: /.
         dst_path: /
         dst_owner: LeanQ

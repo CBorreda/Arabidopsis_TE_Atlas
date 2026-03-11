@@ -1,0 +1,21 @@
+name: Copy gh-pages
+
+on:
+  workflow_dispatch
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Push branch to other repo
+        run: |
+          git remote add target https://x-access-token:${TOKEN}@github.com/LeanQ/ArabidopsisTEatlas.git
+          git push target gh-pages --force
+        env:
+          TOKEN: ${{ secrets.PERSONAL_TOKEN }}
